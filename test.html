@@ -1,0 +1,38 @@
+<script src=prng4.js></script>
+<script src=rng.js></script>
+
+<script type="text/javascript">
+
+     function numHex(s)
+   	{
+      		var a = s.toString(16);
+      		if( (a.length % 2) > 0 ){ a = "0" + a; }
+      		return a;
+   	}
+
+
+	function test(){
+
+		var rng = new SecureRandom(301);
+
+		rng.rng_seed_int(301)
+		a = new Array(256);
+
+		rng.nextBytes(a);
+
+		for (j=0;j<1;j++){
+			str_ = "";
+        		for (i=0;i<32;i++){
+				str_ = str_ +  numHex(a[i]);
+			}
+			//document.write(str_ + '</br>');
+			console.log(str_);
+			str_ = "";
+		}
+		
+	}
+
+</script>
+
+<body onclick="test()">
+</body>
